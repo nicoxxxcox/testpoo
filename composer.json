@@ -1,0 +1,19 @@
+{
+    "name": "app/site",
+    "authors": [
+        {
+            "name": "nicolas.grissi",
+            "email": "nicolas.grissi@edenwork.com"
+        }
+
+
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\" : "class/"
+        }
+    },
+    "require": {
+        "altorouter/altorouter": "^1.2"
+    }
+}
