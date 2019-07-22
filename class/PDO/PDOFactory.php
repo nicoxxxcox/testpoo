@@ -6,7 +6,7 @@
     {
         public static function getMysqlConnexion($dbName, $login, $password)
         {
-            $db = new PDO('mysql:host=localhost;dbname=' . $dbName, $login, $password);
+            $db = new PDO('mysql:host=localhost:3306;dbname=' . $dbName, $login, $password);
             $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
             return $db;

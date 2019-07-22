@@ -14,7 +14,7 @@
 
         public function __construct()
         {
-            $this->db =  PDOFactory::getMysqlConnexion('test' , 'root' , '');
+            $this->db =  PDOFactory::getMysqlConnexion('test' , DB_LOGIN , DB_PASSWORD);
         }
 
         public function messageExist($id)
