@@ -34,7 +34,7 @@
             foreach ($message_man->findAll() as $item) {
 
                 echo '
-    <div class="card m-3" style="width: 50vw; ">
+                <div class="card m-3" style="width: 50vw; ">
       <div class="card-body">
         <h5 class="card-title"><a href="message/'.$item['id'].'">' . $item["title"] . '</a></h5>
         <h6 class="card-subtitle mb-2 text-muted">Envoyé le : ' . $item["send_date"] . '</h6>
