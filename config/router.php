@@ -7,8 +7,7 @@
     
 
     $router = new AltoRouter();
-
-    //$router->setBasePath('/test2');
+    $router->setBasePath('/test2');
 
     // ROUTES
     // ici nous définissions les routes

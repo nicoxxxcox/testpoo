@@ -67,7 +67,6 @@ class UserManager
         {
             $query = $this->getDb()->prepare('DELETE FROM user WHERE id = :id');
             $query->bindValue(':id' , $id, PDO::PARAM_INT);
-
             $query->execute();
         }
 
@@ -77,11 +76,10 @@ class UserManager
          */
         public function persist($user)
         {
-
-
-            $query = $this->getDb()->prepare('INSERT INTO user (pseudo , email , connexion_date) value (:pseudo , :email , :connexion_date)');
+            $query = $this->getDb()->prepare('INSERT INTO user (pseudo , email , connexion_date,guid) value (:pseudo , :email , :connexion_date , :guid)');
             $query->bindValue(':pseudo' , $user->getPseudo() , PDO::PARAM_STR);
             $query->bindValue(':email' , $user->getEmail() , PDO::PARAM_STR);
+            $query->bindValue(':guid' , uniqid() , PDO::PARAM_STR);
             $query->bindValue(':connexion_date' , $user->getConnexionDate() );
 
             $query->execute();
