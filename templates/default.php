@@ -10,13 +10,11 @@
     <link rel="stylesheet" href="assets/bootstrap-4.3.1-dist/css/bootstrap.min.css">
     
 
-    <title><?= $page_title ? $page_title : "Mon site" ?></title>
+    <title><?= isset($page_title) ? $page_title : "Mon site" ?></title>
 </head>
 <body>
 <div class="container">
-
     <?= $content ?>
-
 </div>
 
 <!-- Optional JavaScript -->

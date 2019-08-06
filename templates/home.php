@@ -21,10 +21,10 @@ $user_all = $user->findAll();
         
         <div class="row mt-3">
             <div class="col-6">
-                <form action="user" method="post" class="form-group">
+                <form action="" method="post" class="form-group">
                 <div class="form-group">
                     <label for="pseudo">Selectionnez votre Pseudo</label>
-                    <select class="form-control" id="pseudo">
+                    <select class="form-control" name="pseudo" id="pseudo">
                     <option selected >---- Choisissez votre utilisateur ------</option>
                     <?php
                     
@@ -42,7 +42,7 @@ $user_all = $user->findAll();
             </div>
 
             <div class="col-6">
-                <form action="user" method="post" class="form-group">
+                <form action="" method="post" class="form-group">
                 <div class="form-group">
                     <label for="pseudo_new">Ou bien inscrivez vous</label>
                     <input type="text" class="form-control" placeholder="Choisissez un pseudo" name="pseudo_new" id="pseudo_new">
