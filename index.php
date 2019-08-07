@@ -6,7 +6,8 @@
     require './config/config.php';
 
     // on charge le router
-    require './config/router.php';
+    require './router/router.php';
+
 
 
   
