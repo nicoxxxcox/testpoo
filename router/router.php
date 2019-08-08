@@ -16,15 +16,6 @@
     // ici nous définissions les routes
 
 
-    $router->map('GET|POST', '/login', function () {
-        ob_start();
-        require ROOTPATH . '/templates/login.php';
-        $content = ob_get_clean();
-        require ROOTPATH . '/templates/default.php';
-    });
-
-
-
     $router->map('GET|POST', '/', function () {
 
         // dans les cas ou l'on choisis un  pseudo créé
