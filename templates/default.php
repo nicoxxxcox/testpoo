@@ -13,6 +13,12 @@
     <title><?= isset($page_title) ? $page_title : "Mon site" ?></title>
 </head>
 <body>
+
+
+<?php
+    // load navbar in all pages
+    require ROOTPATH . '/templates/navbar.php'; ?>
+
 <div class="container">
     <?= $content ?>
 </div>

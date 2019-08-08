@@ -1,12 +1,21 @@
 <?php
 
 
-    // On charge la config et l'autoload de composer pour ne plus à faire des requires
+    // load autoloader to avoid requires
     require './vendor/autoload.php';
+
+    // load config file
     require './config/config.php';
 
-    // on charge le router
+    // load database config file
+    require './config/database_conf.php';
+
+    // load router
     require './router/router.php';
+
+
+    // for testing
+    require 'testing.php';
 
 
 
