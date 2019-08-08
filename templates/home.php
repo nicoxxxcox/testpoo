@@ -51,9 +51,13 @@ $user_all = $user->findAll();
                 </div>
                 </div>
                 <div class="form-group">
-                    <label for="email_new">Et une adresse email</label>
+                    <label for="email_new">Une adresse email</label>
                     <input type="text" class="form-control" placeholder="Votre email" name="email_new" id="email_new">
                 </div>
+                    <div class="form-group">
+                        <label for="password_new">Et un super mot de passe</label>
+                        <input type="password" class="form-control" placeholder="Votre mot de passe" name="password_new" id="password_new">
+                    </div>
                 <div class="form-group">
                     <input type="submit" class="form-control btn btn-primary" value="Nouvel utilisateur">
                 </div>

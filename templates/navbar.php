@@ -5,11 +5,12 @@
             <form action="." method="post" class="form">
             <div class="modal-body">
                     <div class="form-group">
-                        <label for="email">Votre email</label>
-                        <input type="email" name="email" id="email" class="form-control" placeholder="Votre email">
+                        <label for="email_login">Votre email</label>
+                        <input type="email_login" name="email_login" id="email_login" class="form-control" placeholder="Votre email">
                     </div>
                     <div class="form-group">
                         <label for="password">Votre mot de passe</label>
+                        <input type="password" name="password_login" id="password_login" class="form-control" placeholder="Votre mot de passe">
 
                     </div>
             </div>
@@ -31,21 +32,26 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Link</a>
             </li>
         </ul>
+        <?php if(\App\Auth\Auth::is_connected()){ ?>
 
+            <form action="" method="post">
+                <input class="btn btn-warning" name="logout" type="submit" value="Se déconnecter">
+            </form>
+
+
+            </a>
+        <?php } else {  ?>
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#connexionModal">
             Se connecter
         </button>
 
-        <button type="button" class="btn btn-warning">
-            Se déconnecter
-        </button>
-
+        <?php } ;?>
 
     </div>
 </nav>

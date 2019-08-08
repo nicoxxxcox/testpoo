@@ -4,6 +4,9 @@
     // load autoloader to avoid requires
     require './vendor/autoload.php';
 
+    // load utility functions
+    require './functions/functions.php';
+
     // load config file
     require './config/config.php';
 

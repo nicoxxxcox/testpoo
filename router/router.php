@@ -7,22 +7,16 @@
     use App\Auth\Auth;
 
 
-
-
-
-
     $router = new AltoRouter();
 
     $router->setBasePath('/test2');
-
-
 
 
     // ROUTES
     // ici nous définissions les routes
 
 
-    $router->map('GET|POST' , '/login' , function(){
+    $router->map('GET|POST', '/login', function () {
         ob_start();
         require ROOTPATH . '/templates/login.php';
         $content = ob_get_clean();
@@ -30,26 +24,31 @@
     });
 
 
-    $router->map('GET|POST' , '/' ,function(){
+
+    $router->map('GET|POST', '/', function () {
 
         // dans les cas ou l'on choisis un  pseudo créé
-        if (isset($_POST['pseudo'])) {
+        if (isset($_POST['pseudo'] )  ) {
             $id = $_POST['pseudo'];
             $user = new User();
             $res_user = $user->find($id);
-            if($res_user){
-                 $user->hydrate($res_user);
+            if ($res_user) {
+                $user->hydrate($res_user);
                 $_SESSION['user']['pseudo'] = $user->getPseudo();
                 $_SESSION['user']['email'] = $user->getEmail();
+
                 $_SESSION['user']['connexion_date'] = $user->getConnexionDate();
-            } else {unset($_SESSION['user']);}
+            } else {
+                unset($_SESSION['user']);
+            }
         }
 
-        if(isset($_POST['pseudo_new']) && isset($_POST['email_new'])) {
+        if (isset($_POST['pseudo_new']) && isset($_POST['email_new'])) {
             $aUser = [];
             $aUser = array("connexionDate" => date("Y-m-d H:i:s"),
                            "email" => $_POST['email_new'],
-                           "pseudo" => $_POST['pseudo_new']);
+                           "pseudo" => $_POST['pseudo_new'],
+                            "password" => password_hash($_POST['password_new'] , PASSWORD_DEFAULT));
             $user = new User($aUser);
 
             // on demande au manager d'écrire en base le user
@@ -62,8 +61,7 @@
         $message = new Message();
         $content = ob_get_clean();
         require ROOTPATH . '/templates/default.php';
-});
-
+    });
 
 
     $router->map('GET|POST', '/messages', function () {
@@ -92,7 +90,7 @@
 
     $router->map('GET', '/message/[i:id]', function ($id) {
 
-        $message= new Message();
+        $message = new Message();
         $a = $message->find($id);
 
         ob_start();
@@ -133,10 +131,6 @@
     });
 
     */
-
-
-
-
 
 
     // on match les routes

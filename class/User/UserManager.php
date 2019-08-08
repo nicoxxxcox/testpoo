@@ -15,13 +15,24 @@ class UserManager
             $this->db =  PDOFactory::getMysqlConnexion('test' , DB_LOGIN , DB_PASSWORD);
         }
 
-        public function UserExist($id)
+        public function UserExist($info)
         {
-            $query = $this->getDb()->prepare('SELECT id FROM user WHERE id = :id');
-            $query->bindValue(':id', $id , PDO::PARAM_INT);
-            $query->execute();
 
-            $entity = $query->fetch();
+            if(filter_var( $info, FILTER_VALIDATE_EMAIL)) {
+                $query = $this->getDb()->prepare('SELECT email FROM user WHERE email = :email');
+                $query->bindValue(':email', $info , PDO::PARAM_INT);
+                $query->execute();
+
+                $entity = $query->fetch();
+            }
+            else {
+                $query = $this->getDb()->prepare('SELECT id FROM user WHERE id = :id');
+                $query->bindValue(':id', $info , PDO::PARAM_INT);
+                $query->execute();
+
+                $entity = $query->fetch();
+            }
+
             if( !empty($entity)){
                 return true;
             }
@@ -43,6 +54,16 @@ class UserManager
 
             return $entity;
         }
+
+    public function findByEmail($email)
+    {
+        $query = $this->getDb()->prepare('SELECT * FROM user WHERE email = :email');
+        $query->bindValue(':email', $email , PDO::PARAM_INT);
+        $query->execute();
+        $entity = $query->fetch();
+
+        return $entity;
+    }
 
         /**
          * search all users
@@ -76,14 +97,24 @@ class UserManager
          */
         public function persist($user)
         {
-            $query = $this->getDb()->prepare('INSERT INTO user (pseudo , email , connexion_date,guid) value (:pseudo , :email , :connexion_date , :guid)');
+            $query = $this->getDb()->prepare('INSERT INTO user (pseudo , email ,password , connexion_date,guid) value (:pseudo , :email, :password , :connexion_date , :guid)');
             $query->bindValue(':pseudo' , $user->getPseudo() , PDO::PARAM_STR);
             $query->bindValue(':email' , $user->getEmail() , PDO::PARAM_STR);
+            $query->bindValue(':password' , $user->getPassword() , PDO::PARAM_STR);
             $query->bindValue(':guid' , uniqid() , PDO::PARAM_STR);
             $query->bindValue(':connexion_date' , $user->getConnexionDate() );
 
             $query->execute();
 
+        }
+
+        public function password_verify($user)
+        {
+            $query = $this->getDb()->prepare('SELECT COUNT(*) FROM user WHERE email = :email AND password = :password');
+            $query->bindValue(':email' , $user->getEmail() , PDO::PARAM_STR);
+            $query->bindValue(':password' , $user->getPassword() , PDO::PARAM_STR);
+
+            $query->execute();
         }
 
         /**
