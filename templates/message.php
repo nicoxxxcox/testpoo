@@ -14,7 +14,7 @@
     <?php } else {
        ?>
             <div class="row m-5">
-                <a href="../messages">< Retour aux messages</a>
+                <a href="<?= $router->generate('messages') ?>">< Retour aux messages</a>
             </div>
             <div class="card m-5">
               <div class="card-body">
