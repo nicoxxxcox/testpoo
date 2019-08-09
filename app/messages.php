@@ -25,10 +25,3 @@
     $render = new View('messages');
     $render = new View('footer');
 
-
-
-/*
-    ob_start();
-    require ROOTPATH . '/templates/messages.php';
-    $content = ob_get_clean();
-    require ROOTPATH . '/templates/default.php';*/
