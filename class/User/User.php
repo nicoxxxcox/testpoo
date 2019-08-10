@@ -5,13 +5,42 @@
     {
 
         // ATTRIBUTES
+        /**
+         * @var string
+         */
         protected $name;
+
+        /**
+         * @var string
+         */
         protected $guid;
 
+        /**
+         * @var string
+         */
         private $pseudo ;
+
+        /**
+         * @var string
+         */
         private $email;
+
+        /**
+         * @var string
+         */
+        private $password;
+
+
+        /**
+         * @var integer
+         */
         private $connexion_date;
 
+
+
+        /**
+         * @var UserManager
+         */
         private $manager;
 
         private $users = [];
@@ -52,10 +81,20 @@
             } else {
                 $entity = false;
             }
-
-
             return $entity;
         }
+
+        public function findByEmail($email)
+        {
+            if($this->manager->userExist($email)){
+                $entity = $this->manager->findByEmail($email);
+            } else {
+                $entity = false;
+            }
+            return $entity;
+        }
+
+
 
         /**
          * search all users
@@ -88,6 +127,14 @@
         {
             $this->manager->persist($user);
         }
+
+
+        public function passwordVerify($password)
+        {
+            return password_verify($password , $this->getPassword());
+        }
+
+
 
         /**
          * @return string
@@ -135,6 +182,22 @@
         public function setEmail($email)
         {
             $this->email = $email;
+        }
+
+        /**
+         * @return string
+         */
+        public function getPassword()
+        {
+            return $this->password;
+        }
+
+        /**
+         * @param string $password
+         */
+        public function setPassword($password)
+        {
+            $this->password = $password;
         }
 
         /**

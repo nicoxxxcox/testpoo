@@ -1,14 +1,27 @@
 <?php
-    session_start();
 
-    // On charge la config et l'autoload de composer pour ne plus à faire des requires
+
+    // load autoloader to avoid requires
     require './vendor/autoload.php';
+
+    // load utility functions
+    require './functions/functions.php';
+
+    // load config file
     require './config/config.php';
 
+    // load database config file
+    require './config/database_conf.php';
+
+    // load router
+    require './router/router.php';
 
 
-    // on charge le router
-    require './config/router.php';
+
+    // for testing
+    require 'testing.php';
+
+
 
   
 

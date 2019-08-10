@@ -1,8 +1,4 @@
 <?php
-// path constants
-    define('ROOTPATH', dirname(dirname(__FILE__)) );
+// absolute path constants
+    define('ROOTPATH', dirname(__DIR__) );
 
-// db constants
-
-    const DB_LOGIN = "root";
-    const DB_PASSWORD = "isisrena1";
