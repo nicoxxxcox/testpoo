@@ -21,7 +21,7 @@
         $message->remove($_POST['id']);
     }
 
-    $render = new View('header');
+
     $render = new View('messages');
-    $render = new View('footer');
+
 

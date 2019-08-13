@@ -38,7 +38,7 @@
                 <a class="nav-link" href="#">Link</a>
             </li>
         </ul>
-        <?php if(\App\Auth\Auth::is_connected()){ ?>
+        <?php if($is_connected){ ?>
 
             <form action="" method="post">
                 <input class="btn btn-warning" name="logout" type="submit" value="Se déconnecter">

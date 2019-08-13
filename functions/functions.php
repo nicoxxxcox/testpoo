@@ -23,4 +23,11 @@
         return implode(DIRECTORY_SEPARATOR, $absolutes);
     }
 
+    function router_base_path(){
+     if(!empty(BASE_PATH)){
+        $router->setBasePath(BASE_PATH);
+
+     }   
+    }
+
 

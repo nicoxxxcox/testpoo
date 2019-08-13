@@ -2,6 +2,8 @@
     use App\User\User;
     // FILE FOR TESTING
 
+/*
+
 
     if (isset($_POST['logout']) && isset($_SESSION['user'])) {
         unset($_SESSION['user']);
@@ -34,3 +36,5 @@
 
 
     }
+
+    */

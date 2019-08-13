@@ -8,6 +8,8 @@
     $message = new Message();
     $message_man = new MessageManager();
 
+    require ROOTPATH.'/templates/header.php';
+    require ROOTPATH.'/templates/navbar.php';
 
     $a = null;
 
@@ -32,9 +34,7 @@
         <div class="col">
             <?php
                 foreach ($message_man->findAll() as $item) {
-
-                    echo '
-                    <div class="card m-3" style="width: 50vw; ">
+                    echo '<div class="card m-3" style="width: 50vw; ">
           <div class="card-body">
             <h5 class="card-title"><a href="message/'.$item['id'].'">' . $item["title"] . '</a></h5>
             <h6 class="card-subtitle mb-2 text-muted">Envoyé le : ' . $item["send_date"] . '</h6>
@@ -46,9 +46,7 @@
                 <input type='submit' class='btn btn-danger' value='&#xd7;'>
             </form>
           </div>
-        </div>
-       
-        ";
+        </div>";
                 }
 
             ?>
@@ -74,5 +72,6 @@
 
 </div>
 
+<?php require ROOTPATH . '/templates/footer.php'; ?>
 
 

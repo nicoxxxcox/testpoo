@@ -3,6 +3,9 @@
 
     $page_title = "Message - " . $id ;
 
+    require ROOTPATH . '/templates/header.php';
+    require ROOTPATH . '/templates/navbar.php';
+
     if(!$a){ ?>
         
             <div class="row m-5">
@@ -24,6 +27,9 @@
             </div>
             <?php
     }   ?>
+
+
+<?php require ROOTPATH . '/templates/footer.php'; ?>
 
 
 

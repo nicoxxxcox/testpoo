@@ -4,6 +4,9 @@
     // load autoloader to avoid requires
     require './vendor/autoload.php';
 
+    $auth = new App\Auth\Auth();
+    $is_connected = $auth->is_connected();
+
     // load utility functions
     require './functions/functions.php';
 
@@ -15,6 +18,8 @@
 
     // load router
     require './router/router.php';
+
+    
 
 
 

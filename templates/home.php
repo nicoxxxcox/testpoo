@@ -7,7 +7,9 @@
 $user = new User();
 $user_all = $user->findAll();
 
-require ROOTPATH.'/templates/navbar.php'?>
+require ROOTPATH . '/templates/header.php';
+require ROOTPATH .'/templates/navbar.php'
+?>
 
 <div class="jumbotron jumbotron-fluid my-5">
     <div class="container">
@@ -51,3 +53,5 @@ require ROOTPATH.'/templates/navbar.php'?>
         
     </div>
 </div>
+
+<?php require ROOTPATH . '/templates/footer.php'; ?>
