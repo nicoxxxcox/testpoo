@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `commentaires` (
   `commentaire` text CHARACTER SET utf8 NOT NULL,
   `date_commentaire` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=63 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=63 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `commentaires`
@@ -95,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `message` (
   `content` text NOT NULL,
   `send_date` timestamp NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `message`
