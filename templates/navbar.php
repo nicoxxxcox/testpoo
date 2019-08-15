@@ -2,7 +2,7 @@
 <div class="modal fade" id="connexionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form action="." method="post" class="form">
+            <form action="" method="post" class="form">
             <div class="modal-body">
                     <div class="form-group">
                         <label for="email_login">Votre email</label>
@@ -38,14 +38,14 @@
                 <a class="nav-link" href="#">Link</a>
             </li>
         </ul>
-        <?php if($is_connected){ ?>
+
+        <?php if(!empty($_SESSION['user'])){ ?>
+
 
             <form action="" method="post">
                 <input class="btn btn-warning" name="logout" type="submit" value="Se déconnecter">
             </form>
 
-
-            </a>
         <?php } else {  ?>
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#connexionModal">
             Se connecter

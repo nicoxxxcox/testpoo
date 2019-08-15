@@ -22,7 +22,7 @@
         public static function force_connexion($redirection_path)
         {
             if (!self::is_connected()) {
-                header('Location: '. $redirection_path );
+                header('Location:'. $redirection_path );
                 exit();
             }
         }

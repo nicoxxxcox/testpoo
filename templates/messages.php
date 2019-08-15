@@ -1,22 +1,22 @@
 <?php
 
-    use App\Message\Message;
-    use App\Message\MessageManager;
+use App\Message\Message;
+use App\Message\MessageManager;
 
-    $page_title = "Les messages";
+$page_title = "Les messages";
 
-    $message = new Message();
-    $message_man = new MessageManager();
+$message = new Message();
+$message_man = new MessageManager();
 
-    require ROOTPATH.'/templates/header.php';
-    require ROOTPATH.'/templates/navbar.php';
+require ROOTPATH . '/templates/header.php';
+require ROOTPATH . '/templates/navbar.php';
 
-    $a = null;
+$a = null;
 
-    foreach ($message->getManager()->findAll() as $item) {
+foreach ($message->getManager()->findAll() as $item) {
 
-        $a .= "<span style='padding: .5rem;'><a href='message/" . $item['id'] . "'>" . $item['id'] . "</a></span>";
-    }
+    $a .= "<span style='padding: .5rem;'><a href='message/" . $item['id'] . "'>" . $item['id'] . "</a></span>";
+}
 
 ?>
 
@@ -32,30 +32,33 @@
 
     <div class="row">
         <div class="col">
-            <?php
-                foreach ($message_man->findAll() as $item) {
-                    echo '<div class="card m-3" style="width: 50vw; ">
-          <div class="card-body">
-            <h5 class="card-title"><a href="message/'.$item['id'].'">' . $item["title"] . '</a></h5>
-            <h6 class="card-subtitle mb-2 text-muted">Envoyé le : ' . $item["send_date"] . '</h6>
-            <p class="card-text">' . $item["content"] . "</p>
-            
-            <form action='messages' method='post'>
-                <input type='text' name='del' hidden id=''>
-                <input type='text' name='id' hidden value='" . $item['id'] . "' id=''>
-                <input type='submit' class='btn btn-danger' value='&#xd7;'>
-            </form>
-          </div>
-        </div>";
-                }
 
-            ?>
+            <h2>Tous les messages</h2>
+            <?php foreach ($message_man->findAll() as $item) { ?>
+                <div class="card m-3" style="width: 50vw; ">
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="message/<?= $item['id'] ?>"><?= $item["title"] ?></a></h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Envoyé le : <?= $item["send_date"] ?></h6>
+                        <p class="card-text"><?= $item["content"] ?></p>
+                        <form action="" method="post">
+                            <input type="text" name="del" hidden>
+                            <input type="text" name="id" hidden value="<?= $item['id'] ?>">
+                            <input type="submit" class="btn btn-danger" value="&#xd7;">
+                        </form>
+                    </div>
+                </div>
+            <?php } ?>
 
         </div>
     </div>
 
+
+    <hr>
+
     <div class="row">
-        <form action="messages" method="post">
+        <div class="col">
+            <h2>Ajouter un message</h2>
+            <form action="" method="post">
             <div class="form-group">
                 <label for="title">Titre</label>
                 <input type="text" class="form-control" id="title" name="title" placeholder="Le Titre du message">
@@ -67,6 +70,7 @@
 
             <button type="submit" class="btn btn-primary">Nouveau message</button>
         </form>
+        </div>
 
     </div>
 
