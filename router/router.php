@@ -18,8 +18,8 @@
     /**
      * @desc map routes
      */
-    $router->map('GET' , '/' , 'index' , 'home' );
-    $router->map('GET' , '/messages' , 'messages' , 'messages');
+    $router->map('GET|POST' , '/' , 'index' , 'home' );
+    $router->map('GET|POST' , '/messages' , 'messages' , 'messages');
     $router->map('GET' , '/message/[i:id]' , 'message' , 'message');
 
     /**

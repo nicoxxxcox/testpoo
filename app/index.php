@@ -4,6 +4,8 @@
     use App\User\User;
     use App\View\View;
 
+
+
     if (isset($_POST['pseudo_new']) && isset($_POST['email_new'])) {
         $aUser = [];
         $aUser = array("connexionDate" => date("Y-m-d H:i:s"),
@@ -12,13 +14,16 @@
                        "password" => password_hash($_POST['password_new'], PASSWORD_DEFAULT));
         $user = new User($aUser);
 
-// on demande au manager d'écrire en base le user
+        // on demande au manager d'écrire en base le user
         $user->persist($user);
+
+        //  header('Location:'. $router->generate('home'));
 
     }
 
     if (isset($_POST['logout']) && isset($_SESSION['user'])) {
         unset($_SESSION['user']);
+        // header('Location:'. $router->generate('home'));
     }
 
     if(isset($_POST['email_login'] , $_POST['password_login'])){
@@ -28,12 +33,11 @@
         $res_user = $user->findByEmail($email);
         if($res_user){
             $user->hydrate($res_user);
-
-
             if($user->passwordVerify($_POST['password_login'])){
                 $_SESSION['user']['pseudo'] = $user->getPseudo();
                 $_SESSION['user']['email'] = $user->getEmail();
             }
+
         }
         else{
             ob_start();
@@ -42,7 +46,6 @@
             </div>";
             $messageInfo = ob_get_clean();
         }
-
 
 
 

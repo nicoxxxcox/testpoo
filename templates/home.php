@@ -1,8 +1,6 @@
 <?php 
-    use App\Message\Message;
-    use App\Message\MessageManager;
+
     use App\User\User;
-    use App\User\UserManager;
 
 $user = new User();
 $user_all = $user->findAll();
@@ -14,9 +12,6 @@ require ROOTPATH .'/templates/navbar.php'
 <div class="jumbotron jumbotron-fluid my-5">
     <div class="container">
 
-
-
-        
         <div class="row">
             <div class="col">
                 <h1 class="display-4">Bienvenue</h1>
